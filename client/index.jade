@@ -10,25 +10,27 @@ html
     
     h1 Picture Puzzle
     
-    select
-      option(value="1") Easy
-      option(value="2") Medium
-      option(value="3") Hard
+    select#difficulty
+      option(value="3") Easy
+      option(value="4") Medium
+      option(value="5") Hard
+    
+    button#start start
     
     table
       tbody
-        tr
-          td.1
-          td.2
-          td.3
-        tr
-          td.4
-          td.5
-          td.6
-        tr
-          td.7
-          td.8
-          td.9
+        //- tr
+        //-   td.1
+        //-   td.2
+        //-   td.3
+        //- tr
+        //-   td.4
+        //-   td.5
+        //-   td.6
+        //- tr
+        //-   td.7
+        //-   td.8
+        //-   td.9
     
     script(src='/vendor/jquery/dist/jquery.min.js')
     script(src='/vendor/lodash/lodash.min.js')
