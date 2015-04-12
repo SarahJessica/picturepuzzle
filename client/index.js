@@ -4,7 +4,7 @@ $(document).ready(init);
 // var easyArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // var difficulty = $('#difficulty option:selected').val();
 // console.log(difficulty);
-//var difficulty = 4;
+var difficulty = 4;
 
 function init(){
   // $('#start').click(gridSetup);
@@ -16,19 +16,22 @@ function init(){
 // console.log($('.1').css('background-image').split('/').pop().slice(0, -1));
 // $('td').each(function(){
 
-// function gridSetup(){
-//   var $tr = $('<tr>');
-//   var $td = $('<td>');
-//
-//     for (var i = 1; i <=difficulty; i++){
-//       $tr +
-//         for (var j = 1; j<=difficulty; j++){
-//           $td;
-//         }
-//     };
-//   $('td').css('background-color','#d69295');
-//   console.log("you're in gameSetup");
-// }
+function gridSetup(){
+  var counter = 1;
+
+  for (var i = 1; i <=difficulty; i++){
+    var $tr = $('<tr>');
+    for (var j = 1; j<=difficulty; j++){
+      var $td = $('<td>');
+      $td.attr('id', counter);
+      counter++;
+      $tr.append($td);
+    }
+    $('#puzzle').append($tr);
+  }
+  $('td').css('background-color','#d69295');
+  console.log("you're in gameSetup");
+}
 
 function revealImg(){
   var show = Math.floor(Math.random()*9) + 1;
