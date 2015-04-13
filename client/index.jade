@@ -1,37 +1,31 @@
 doctype html
 html
   head
-    meta(charset='utf-8')      
+    meta(charset='utf-8')
     title Picture Puzzle
     link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href=isProd ? '/index.min.css' : '/index.css')
     link(rel='shortcut icon', href='/favicon.ico')
   body
-    
-    h1 Picture Puzzle
-    
-    //- select#difficulty
-    //-   option(value="3") Easy
-    //-   option(value="4") Medium
-    //-   option(value="5") Hard
-    
-    button#start Restart
-    
-    table
-      tbody#puzzle
-        //- tr
-        //-   td#1
-        //-   td#2
-        //-   td#3
-        //- tr
-        //-   td#4
-        //-   td#5
-        //-   td#6
-        //- tr
-        //-   td#7
-        //-   td#8
-        
-    
+
+    #container
+      #head
+        #selctionHolder
+          h2 Picture Puzzle  &nbsp;
+          select#difficulty
+            option(value="2") Easy
+            option(value="3") Difficult
+            option(value="4") Hard
+            option(value="5") Don't even try!
+
+          button#start Start
+      #tableHolder
+        table
+          tbody#puzzle
+      #footer
+        p &nbsp; Sarah Jessica Leivers &copy; 2015
+
+
     script(src='/vendor/jquery/dist/jquery.min.js')
     script(src='/vendor/lodash/lodash.min.js')
     script(src=isProd ? '/index.min.js' : '/index.js')

@@ -4,17 +4,25 @@ $(document).ready(init);
 // var easyArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // var difficulty = $('#difficulty option:selected').val();
 // console.log(difficulty);
-var difficulty = 3;
+var difficulty;
 
 function init(){
   // $('#start').click(gridSetup);
- gridSetup();
+  $('#start').click(gameStart());
   $('td').click(revealImg);
-  $('#start').click($('td').css('background-color', 'pink'));
+  // $('#start').click($('td').css('background-color', 'pink'));
 }
 
 // console.log($('.1').css('background-image').split('/').pop().slice(0, -1));
 // $('td').each(function(){
+function clear() {
+  difficulty = 0;
+}
+
+function gameStart(){
+  difficulty = $('#difficulty').val();
+  gridSetup();
+}
 
 function gridSetup(){
   var counter = 1;
@@ -35,7 +43,7 @@ function gridSetup(){
 }
 
 function revealImg(){
-  var show = Math.floor(Math.random()*9) + 1;
+  var show = Math.floor(Math.random()*(difficulty*difficulty)) + 1;
   $(this).css('background-image', 'url("/assets/' + difficulty + '/' + show + '.jpg")');
   winCheck();
 }
