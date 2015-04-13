@@ -6,6 +6,7 @@ $(document).ready(init);
 // console.log(difficulty);
 var difficulty;
 var tries =0;
+var img = 0;
 
 function init(){
   // $('#start').click(gridSetup);
@@ -19,12 +20,13 @@ function init(){
 // $('td').each(function(){
 function clear() {
   $('#puzzle').empty();
-
+  $('#tableWinCover').css('display', 'none').css('background-color', '').css('background-image', '');
 }
 
 function gameStart(){
   difficulty = $('#difficulty').val()*1;
   console.log(difficulty);
+    img = Math.ceil(Math.random()*2);
   gridSetup();
 }
 
@@ -49,7 +51,7 @@ function gridSetup(){
 
 function revealImg(){
   var show = Math.floor(Math.random()*(difficulty*difficulty)) + 1;
-  $(this).css('background-image', 'url("/assets/' + difficulty + '/' + show + '.jpg")');
+  $(this).css('background-image', 'url("/assets/' + img + '/' + difficulty + '/' + show + '.jpg")');
   winCheck();
 }
 
@@ -65,7 +67,13 @@ function winCheck() {
     }
   }
 
-  matchCount === (difficulty*difficulty) ? alert('you won!'): tries++;
+  if (matchCount === (difficulty*difficulty)){
+  $('#tableWinCover').css('display', 'inline').css('background-image', "url('/assets/" + img + "/" + img + ".jpg')");
+  // debugger;
+  // alert('you won');
+  } else {
+    tries++;
+  }
 }
   // var win = 0;
   // $('td').each(function(){
