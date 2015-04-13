@@ -5,26 +5,31 @@ $(document).ready(init);
 // var difficulty = $('#difficulty option:selected').val();
 // console.log(difficulty);
 var difficulty;
+var tries =0;
 
 function init(){
   // $('#start').click(gridSetup);
-  $('#start').click(gameStart());
-  $('td').click(revealImg);
+  $('#start').click(gameStart);
   // $('#start').click($('td').css('background-color', 'pink'));
+  // $('td').click(revealImg);
+  $('#puzzle').on('click', 'td', revealImg);
 }
 
 // console.log($('.1').css('background-image').split('/').pop().slice(0, -1));
 // $('td').each(function(){
 function clear() {
-  difficulty = 0;
+  $('#puzzle').empty();
+
 }
 
 function gameStart(){
-  difficulty = $('#difficulty').val();
+  difficulty = $('#difficulty').val()*1;
+  console.log(difficulty);
   gridSetup();
 }
 
 function gridSetup(){
+  clear();
   var counter = 1;
 
   for (var i = 1; i <=difficulty; i++){
@@ -51,6 +56,7 @@ function revealImg(){
 function winCheck() {
   var matchCount = 0;
 
+
   for (var i = (difficulty*difficulty); i > 0; i--){
     if ( $('td#' + i).css('background-image').split('/').pop() === (i + '.jpg)')){
       matchCount++;
@@ -59,7 +65,7 @@ function winCheck() {
     }
   }
 
-  matchCount === (difficulty*difficulty) ? alert('you won!'): console.log('not yet');
+  matchCount === (difficulty*difficulty) ? alert('you won!'): tries++;
 }
   // var win = 0;
   // $('td').each(function(){
