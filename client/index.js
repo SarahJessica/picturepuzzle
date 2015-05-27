@@ -20,7 +20,7 @@ function init(){
 // $('td').each(function(){
 function clear() {
   $('#puzzle').empty();
-  $('#tableWinCover').css('display', 'none').css('background-color', '').css('background-image', '');
+  $('#tableWinCover').css('display','none').css('background-color', '').css('background-image', '');
 }
 
 function gameStart(){
